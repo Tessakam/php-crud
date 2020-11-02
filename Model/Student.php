@@ -10,15 +10,13 @@ class Student extends Database
     private Teacher $teacher;
 
 
-    public function __construct(int $id, string $name, string $email, Classroom $class, Teacher $teacher)
+    public function __construct(string $name, string $email, Classroom $class, Teacher $teacher)
     {
-        $this->id = $id;
         $this->name = $name;
         $this->email = $email;
         $this->class = $class;
         $this->teacher = $teacher;
     }
-
 
 
     public function getId(): int
