@@ -8,8 +8,8 @@ class Database
 
         $dbHost = "localhost";
         $dbUser = "becode";
-        $dbPass = "becode123";
-        $db = "beCode class";
+        $dbPass = "becode";
+        $db = "beCode_class";
 
         $driverOptions = [
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'",
