@@ -1,7 +1,7 @@
 <?php
 
 
-class Student
+class Student extends Database
 {
     private int $id;
     private string $name;
@@ -47,6 +47,15 @@ class Student
     }
 
 
-
-
+    // insert student data to the student table in the database manager.
+    public function insert() {
+        $pdo = $this->openConnection();
+        $handle = $pdo->prepare('INSERT INTO student (name, email, class_id, teacher_id) VALUES (:name, :email, :class_id, :teacher_id)');
+        $handle->bindValue(':name', $this->getName());
+        $handle->bindValue(':email', $this->getEmail());
+        $handle->bindValue(':class_id', $this->getClass()->getId());
+        $handle->bindValue(':teacher_id', $this->getTeacher()->getId());
+        $handle->execute();
+        $this->id = $pdo->lastInsertId();
+    }
 }
