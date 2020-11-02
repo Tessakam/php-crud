@@ -9,6 +9,6 @@ class Teacherloader
 
     public function __construct(): array
     {
-      
+
     }
 }
