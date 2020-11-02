@@ -37,7 +37,7 @@ class Classroom extends Database
 
     public function insertData()
     {
-        $handle = $this->openConnection()->prepare('INSERT INTO class (name, teacher_id, location) VALUES (:name, :teacher, :location)');
+        $handle = $this->openConnection()->prepare('INSERT INTO class (name, location) VALUES (:name, :location)');
         $handle->bindValue(':name', $this->getName());
         $handle->bindValue(':teacher_id', $this->getTeacher()->getId());
         $handle->bindValue(':location', $this->getLocation());
