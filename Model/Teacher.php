@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 class Teacher
 { //added properties and type
+
     private string $name;
     private string $email;
     private string $studentsToTeacher;
@@ -14,6 +15,12 @@ class Teacher
         $this->name = $name;
         $this->email = $email;
         $this->studentsToTeacher = $studentsToTeacher;
+    }
+
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 
 

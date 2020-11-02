@@ -1,4 +1,5 @@
 .idea
 *.map
 .git
-import.sql
+.DS_Store
+
