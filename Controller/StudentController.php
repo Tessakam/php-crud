@@ -4,7 +4,7 @@
 class StudentController
 {
 
-    public function getStudentData() {
+    public function studentController() {
         require 'View/homepage.php';
     }
 }

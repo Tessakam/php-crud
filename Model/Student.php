@@ -40,7 +40,6 @@ class Student extends Database
 
 
 
-
     // insert student data to the student table in the database manager.
     public function insert() {
         $pdo = $this->openConnection();

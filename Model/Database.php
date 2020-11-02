@@ -1,15 +1,11 @@
 <?php
 
+require '../config.php';
 
 class Database
 {
 
-    public function openConnection(): PDO {
-
-        $dbHost = "localhost";
-        $dbUser = "becode";
-        $dbPass = "becode123";
-        $db = "beCode_class";
+    public function openConnection($dbHost, $dbUser, $dbPass, $db): PDO {
 
         $driverOptions = [
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'",

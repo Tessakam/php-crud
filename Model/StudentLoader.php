@@ -5,18 +5,19 @@ class StudentLoader extends Database
 {
     private array $students;
 
-    private function loadStudent() {
+    public function __construct() {
         $pdo = $this->openConnection();
         $statement = $pdo->prepare('SELECT * FROM student');
         $statement->execute();
         $students = $statement->fetchAll();
+        $loader = new Teacherloader();
         foreach ($students as $student) {
-            $this->students[$student['id']] = new Student((string)$student['name'], (string)$student['email'], (int)$student['teacher_id']);
+            $teacher = $loader->getTeacher()[$student['teacher_id']];
+            $this->students[$student['id']] = new Student((string)$student['name'], (string)$student['email'], $teacher);
         }
     }
 
     public function getStudent(): array {
-        $this->loadStudent();
         return $this->students;
     }
 
