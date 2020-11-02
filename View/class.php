@@ -16,8 +16,7 @@
         </tr>
 
         <?php
-        foreach (//get allclasses as $class):
-            ?>
+        foreach ($classes as $class) ?>
             <tr>
                 <th><?php echo $class->getId(); ?></th>
                 <td><?php echo $class->getName(); ?></td>
