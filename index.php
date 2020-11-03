@@ -35,9 +35,15 @@ if (isset($_GET ['page']) && $_GET['page'] == 'TeacherView.php') {
 if (isset($_GET['page'])) {
     require 'Controller/StudentController.php';
     $controller = new StudentController();
-} else { //else show the teacher page
+} elseif(isset($_GET['page'])) { //else show the teacher page
     require 'Controller/TeacherController.php';
     $controller = new TeacherController();
+} elseif(isset($_GET['page'])) { //else show the teacher page
+    require 'Controller/ClassroomController.php';
+    $controller = new ClassroomController();
+} else {
+require 'Controller/HomepageController.php';
+$controller = new HomepageController();
 }
 //render the view
 $controller->render();

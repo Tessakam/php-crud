@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+require 'Model/Database.php';
 require 'Model/Teacher.php';
 require 'Model/Teacherloader.php';
 
