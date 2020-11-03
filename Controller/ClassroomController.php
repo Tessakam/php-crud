@@ -18,5 +18,13 @@ class ClassroomController
         return $this->classroom;
     }
 
+    public function classroomData() {
+
+        $classroomLoader = new ClassroomLoader();
+        $classes = $classroomLoader->getClasses();
+
+        require 'View/class.php';
+    }
+
 
 }
