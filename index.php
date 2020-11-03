@@ -11,6 +11,7 @@ require 'Model/Teacher.php';
 require 'Model/Teacherloader.php';
 require 'Model/ClassroomLoader.php';
 require 'Model/Classroom.php';
+require 'Model/Database.php';
 
 
 
