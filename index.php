@@ -18,11 +18,18 @@ require 'Controller/TeacherController.php';
 require 'Controller/StudentController.php';
 
 
-$studController = new StudentController();
+/*$studController = new StudentController();
 if (isset($_GET['page']) && $_GET['page'] == 'studentView.php') {
     $studController->studentData();
 } else {
     $studController->getStudentData();
+}*/
+
+$teacherController = new TeacherController();
+if (isset($_GET ['page']) && $_GET['page'] == 'TeacherView.php') {
+    $teacherController->teacherData();
+} else {
+    $teacherController->getTeacherData();
 }
 
 
