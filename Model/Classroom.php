@@ -1,6 +1,6 @@
 <?php
 
-
+declare(strict_types=1);
 class Classroom extends Database
 {
     private int $id;
@@ -29,11 +29,12 @@ class Classroom extends Database
 
     public function insertData()
     {
-        $handle = $this->openConnection()->prepare('INSERT INTO class (name, location) VALUES (:name, :location)');
+        $pdo = $this->openConnection();
+        $handle = $pdo->prepare('INSERT INTO class (name, location) VALUES (:name, :location)');
         $handle->bindValue(':name', $this->getName());
         $handle->bindValue(':location', $this->getLocation());
         $handle->execute();
-        $this->id = $this->openConnection()->lastInsertId();
+        $this->id = (int)$pdo->lastInsertId();
     }
 
 }

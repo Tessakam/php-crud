@@ -1,6 +1,6 @@
 <?php
 
-
+declare(strict_types=1);
 class Student extends Database
 {
     private int $id;
@@ -11,7 +11,7 @@ class Student extends Database
 
     public function __construct(string $name, string $email, Teacher $teacher)
     {
-        $this->name = $name;
+        $this->name = ucwords($name);
         $this->email = $email;
         $this->teacher = $teacher;
     }
@@ -20,6 +20,11 @@ class Student extends Database
     public function getId(): int
     {
         return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
     }
 
     public function getName(): string
@@ -48,7 +53,7 @@ class Student extends Database
         $handle->bindValue(':email', $this->getEmail());
         $handle->bindValue(':teacher_id', $this->getTeacher()->getId());
         $handle->execute();
-        $this->id = $pdo->lastInsertId();
+        $this->id = (int)$pdo->lastInsertId();
     }
 
 

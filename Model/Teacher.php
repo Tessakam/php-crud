@@ -1,20 +1,19 @@
 <?php
+
 declare(strict_types=1);
-
-class Teacher
-{ //added properties and type
-
+class Teacher extends Database
+{
+    private  int $id;
     private string $name;
     private string $email;
-    private string $studentsToTeacher;
+    private Classroom $class;
 
     //added method with properties included
-    public function __construct(string $name, string $email, string $studentsToTeacher)
+    public function __construct(string $name, string $email, Classroom $class)
     {
-
-        $this->name = $name;
+        $this->name = ucwords($name);
         $this->email = $email;
-        $this->studentsToTeacher = $studentsToTeacher;
+        $this->class = $class;
     }
 
 
@@ -22,7 +21,6 @@ class Teacher
     {
         return $this->id;
     }
-
 
     public function getName(): string
     {
@@ -36,10 +34,20 @@ class Teacher
     }
 
 
-    public function getStudentsToTeacher(): string
+    public function getClass(): Classroom
     {
-        return $this->studentsToTeacher;
+        return $this->class;
     }
-    //get the private properties
 
+
+    // insert student data to the student table in the database manager.
+    public function insert() {
+        $pdo = $this->openConnection();
+        $handle = $pdo->prepare('INSERT INTO teacher (name, email, class_id) VALUES (:name, :email, :class_id)');
+        $handle->bindValue(':name', $this->getName());
+        $handle->bindValue(':email', $this->getEmail());
+        $handle->bindValue(':class_id', $this->getClass()->getId());
+        $handle->execute();
+        $this->id = (int)$pdo->lastInsertId();
+    }
 }

@@ -22,13 +22,13 @@
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?page=student">Student</a>
+                    <a class="nav-link" href="?page=studentView.php">Student</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?page=teacher">Teacher</a>
+                    <a class="nav-link" href="?page=Teaching.php">Teacher</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?page=class">Class</a>
+                    <a class="nav-link" href="?page=class.php">Class</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">

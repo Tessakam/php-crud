@@ -7,12 +7,12 @@ class ClassroomLoader extends Database
 
     public function __construct()
     {
-        $handle = $this->openConnection()->prepare('SELECT * FROM class');
+        $pdo = $this->openConnection();
+        $handle = $pdo->prepare('SELECT * FROM class');
         $handle->execute();
-
-
-        foreach ($handle->fetchAll() as $class) {
-            array_push($this->classes, new Classroom ($class['name'], $class['location'], ));
+        $classes = $handle->fetchAll();
+        foreach ($classes as $class) {
+            $this->classes[$class['id']] = new Classroom ($class['name'], $class['location']);
         }
     }
 
@@ -20,4 +20,6 @@ class ClassroomLoader extends Database
     {
         return $this->classes;
     }
+
+
 }

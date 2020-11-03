@@ -12,12 +12,13 @@ class StudentLoader extends Database
         $students = $statement->fetchAll();
         $loader = new Teacherloader();
         foreach ($students as $student) {
-            $teacher = $loader->getTeacher()[$student['teacher_id']];
+            $teacher = $loader->getTeachers()[$student['teacher_id']];
             $this->students[$student['id']] = new Student((string)$student['name'], (string)$student['email'], $teacher);
+            $this->students[$student['id']]->setId($student['id']);
         }
     }
 
-    public function getStudent(): array {
+    public function getStudents(): array {
         return $this->students;
     }
 

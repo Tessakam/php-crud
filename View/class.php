@@ -15,8 +15,7 @@
 
         </tr>
 
-        <?php
-        foreach ($classes as $class) ?>
+        <?php foreach ($classes as $class) :?>
             <tr>
                 <th><?php echo $class->getId(); ?></th>
                 <td><?php echo $class->getName(); ?></td>
