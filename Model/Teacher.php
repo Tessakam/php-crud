@@ -47,23 +47,13 @@ class Teacher extends Database
 
 
     // insert teacher data to the teacher table in the database manager.
-    public function insert()
-    {
+    public function insert() {
         $pdo = $this->openConnection();
-        {
-            if (!empty(['name']) && !empty(['email']) && !empty(['class_id'])) {
-                $handle = $pdo->prepare('INSERT INTO teacher (name, email, class_id) VALUES (:name, :email, :class_id)');
-                $handle->bindValue(':name', $this->getName());
-                $handle->bindValue(':email', $this->getEmail());
-                $handle->bindValue(':class_id', $this->getClass()->getId());
-                $handle->execute();
-                $this->id = (int)$pdo->lastInsertId();
-            } else {
-                $handle = $pdo->prepare('UPDATE teacher SET name = :name, email = :email, class_id = :class_id,  WHERE id = :id');
-                $handle->bindValue(':id', ['id']);
-            }
-        }
-
-
+        $handle = $pdo->prepare('INSERT INTO teacher (name, email, class_id) VALUES (:name, :email, :class_id)');
+        $handle->bindValue(':name', $this->getName());
+        $handle->bindValue(':email', $this->getEmail());
+        $handle->bindValue(':teacher_id', $this->getClass()->getId());
+        $handle->execute();
+        $this->id = (int)$pdo->lastInsertId();
     }
 }
