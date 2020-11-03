@@ -9,7 +9,7 @@ class StudentController
 {
     public function render() // getStudentData
     {
-        $pdo = $this->openConnection();
+        $pdo = Database::openConnection();
 
         if (!empty($_POST['student_name']) && !empty($_POST['student_email'])) {
             $controller = new TeacherController();

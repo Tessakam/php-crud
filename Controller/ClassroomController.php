@@ -11,7 +11,7 @@ class ClassroomController
 
     public function render() //getClassData
     {
-        $pdo = $this->openConnection();
+        $pdo = Database::openConnection();
 
         if (!empty($_POST['class_name']) && !empty($_POST['class_location'])) {
             $this->classroom = new Classroom($_POST['class_name'], $_POST['class_location']);

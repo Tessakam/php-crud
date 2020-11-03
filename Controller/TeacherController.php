@@ -11,7 +11,7 @@ class TeacherController
 
     public function render() // getTeacherData
     {
-        $pdo = $this->openConnection();
+        $pdo = Database::openConnection();
 
             if (!empty($_POST['teacher_name']) && !empty($_POST['teacher_email'])) {
             $controller = new ClassroomController();
