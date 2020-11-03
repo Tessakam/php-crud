@@ -13,6 +13,7 @@ class ClassroomLoader extends Database
         $classes = $handle->fetchAll();
         foreach ($classes as $class) {
             $this->classes[$class['id']] = new Classroom ($class['name'], $class['location']);
+            $this->classes[$class['id']]->setId($class['id']);
         }
     }
 

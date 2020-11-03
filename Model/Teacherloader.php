@@ -14,6 +14,7 @@ class Teacherloader extends Database
         foreach ($teachers as $teacher) {
             $classroom = $loader->getClasses()[$teacher['class_id']];
             $this->teachers[$teacher['id']] = new Teacher((string)$teacher['name'], (string)$teacher['email'], $classroom);
+            $this->teachers[$teacher['id']]->setId($teacher['id']);
 
 
         }
