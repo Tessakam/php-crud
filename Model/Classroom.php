@@ -66,7 +66,8 @@ class Classroom extends Database
 
     public function insertData()
     {
-        $handle = $this->openConnection()->prepare('INSERT INTO class (name, location) VALUES (:name, :location)');
+        $pdo = $this->openConnection();
+        $handle = $pdo->prepare('INSERT INTO class (name, location) VALUES (:name, :location)');
         $handle->bindValue(':name', $this->getName());
         $handle->bindValue(':location', $this->getLocation());
         $handle->execute();
@@ -75,20 +76,15 @@ class Classroom extends Database
 
     public function updateData()
     {
-        //In this UPDATE statement: WHERE clause specifies the row that will be updated.
-        $handle = $this->openConnection()->prepare('UPDATE class SET name = :name, location = :location WHERE id= :id');
+        $pdo = $this->openConnection();
+        $handle = $pdo->prepare('UPDATE class SET name = :name, location = :location WHERE id= :id');
         $handle->bindValue(':name', $this->getName());
         $handle->bindValue(':location', $this->getLocation());
         $handle->bindValue(':id', $this->getId());
-        //$teacherId = $this->getTeacherId();
-        //$handle->bindValue('teacher', $teacherId);
         $handle->execute();
     }
 
-<<<<<<< HEAD
 
-
-=======
     private function getTeacherData($id)
     {
         $handle = $this->openConnection()->prepare('SELECT id from teacher WHERE class_id = :class_id');
@@ -104,5 +100,4 @@ class Classroom extends Database
         $handle->execute();
         return $handle->fetchAll();
     }
->>>>>>> 02a8380b3bf4df2e2044db529eaf624eae655a4b
 }
