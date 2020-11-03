@@ -1,9 +1,10 @@
 <?php
 
 declare(strict_types=1);
+
 class Teacher extends Database
 {
-    private  int $id;
+    private int $id;
     private string $name;
     private string $email;
     private Classroom $class;
@@ -40,14 +41,24 @@ class Teacher extends Database
     }
 
 
-    // insert student data to the student table in the database manager.
-    public function insert() {
+    // insert teacher data to the teacher table in the database manager.
+    public function insert()
+    {
         $pdo = $this->openConnection();
-        $handle = $pdo->prepare('INSERT INTO teacher (name, email, class_id) VALUES (:name, :email, :class_id)');
-        $handle->bindValue(':name', $this->getName());
-        $handle->bindValue(':email', $this->getEmail());
-        $handle->bindValue(':class_id', $this->getClass()->getId());
-        $handle->execute();
-        $this->id = (int)$pdo->lastInsertId();
+        {
+            if (!empty(['name']) && !empty(['email']) && !empty(['class_id'])) {
+                $handle = $pdo->prepare('INSERT INTO teacher (name, email, class_id) VALUES (:name, :email, :class_id)');
+                $handle->bindValue(':name', $this->getName());
+                $handle->bindValue(':email', $this->getEmail());
+                $handle->bindValue(':class_id', $this->getClass()->getId());
+                $handle->execute();
+                $this->id = (int)$pdo->lastInsertId();
+            } else {
+                $handle = $pdo->prepare('UPDATE user SET name = :name, email = :email,  WHERE id = :id');
+                $handle->bindValue(':id', $_POST['id']);
+            }
+        }
+
+
     }
 }
