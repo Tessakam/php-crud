@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+//flow structure could be better by adding private class and adding require in render.
 
 class ClassroomController
 {
@@ -9,8 +10,6 @@ class ClassroomController
 
     public function render() //getClassData
     {
-        $this->loader = new ClassroomLoader();
-
         if (!empty($_POST['class_name']) && !empty($_POST['class_location'])) {
             $this->classroom = new Classroom($_POST['class_name'], $_POST['class_location']);
             $this->classroom->insertData();
@@ -18,17 +17,16 @@ class ClassroomController
         $this->classroomData();
     }
 
-
     public function getClassroom(): Classroom
     {
         return $this->classroom;
     }
 
-
     public function classroomData()
     {
-        $classes = $this->loader->getClasses();
+        $loader = new ClassroomLoader(); // makes connection with db
+        $classes = $loader->getClasses();
 
-        require 'View/class.php';
+        require 'View/class.php'; // leave the require in class, otherwise undefined classes
     }
 }
