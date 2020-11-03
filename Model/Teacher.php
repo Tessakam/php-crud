@@ -56,4 +56,20 @@ class Teacher extends Database
         $handle->execute();
         $this->id = (int)$pdo->lastInsertId();
     }
+
+    public function update($id) {
+        $pdo = $this->openConnection();
+        $handle = $pdo->prepare('UPDATE teacher SET name = :name, email = :email WHERE id = :id');
+        $handle->bindValue(':name', $this->getName());
+        $handle->bindValue(':email', $this->getEmail());
+        $handle->bindValue(':id', $id);
+        $handle->execute();
+    }
+
+    public function delete($id) {
+        $pdo = $this->openConnection();
+        $handle = $pdo->prepare('DELETE FROM teacher WHERE id = :id');
+        $handle->bindValue(':id', $id);
+        $handle->execute();
+    }
 }
