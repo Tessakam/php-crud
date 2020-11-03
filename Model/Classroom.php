@@ -85,6 +85,10 @@ class Classroom extends Database
         $handle->execute();
     }
 
+<<<<<<< HEAD
+
+
+=======
     private function getTeacherData($id)
     {
         $handle = $this->openConnection()->prepare('SELECT id from teacher WHERE class_id = :class_id');
@@ -100,4 +104,5 @@ class Classroom extends Database
         $handle->execute();
         return $handle->fetchAll();
     }
+>>>>>>> 02a8380b3bf4df2e2044db529eaf624eae655a4b
 }

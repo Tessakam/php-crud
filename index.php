@@ -6,11 +6,18 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
 
-
 /*$studController = new StudentController();
 if (isset($_GET['page']) && $_GET['page'] == 'studentView.php') {
+    require 'Controller/StudentController.php';
+    $studController = new StudentController();
     $studController->studentData();
+} elseif (isset($_GET['page']) && $_GET['page'] == 'TeacherView.php') {
+    require 'Controller/TeacherController.php';
+    $controller = new TeacherController();
+    $controller->getTeacher();
 } else {
+    require 'Controller/StudentController.php';
+    $studController = new StudentController();
     $studController->getStudentData();
 }*/
 
