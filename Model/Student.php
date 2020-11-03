@@ -57,5 +57,13 @@ class Student extends Database
     }
 
 
+    public function update($id) {
+        $pdo = $this->openConnection();
+        $handle = $pdo->prepare('UPDATE student SET name = :name, email = :email WHERE id = :id');
+        $handle->bindValue(':name', $this->getName());
+        $handle->bindValue(':email', $this->getEmail());
+        $handle->bindValue(':id', $id);
+
+    }
 
 }

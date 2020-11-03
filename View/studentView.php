@@ -14,8 +14,8 @@
             <tr>
                 <td><?php echo htmlspecialchars($student->getName())?></td>
                 <td><?php echo htmlspecialchars($student->getEmail())?></td>
-                <td><?php echo htmlspecialchars($student->getTeacher()->getName())?></td>
-                <td><?php echo htmlspecialchars($student->getTeacher()->getClass()->getName())?></td>
+                <td><a href="?id=<?php //echo $student->getTeacher()->getId()?>"><?php echo htmlspecialchars($student->getTeacher()->getName())?></a></td>
+                <td><a href="?id=<?php //echo $student->getTeacher()->getClass()->getId()?>"><?php echo htmlspecialchars($student->getTeacher()->getClass()->getName())?></a></td>
                 <td>
                     <a href="?id=<?php echo $student->getId()?>" class="btn btn-primary">Update</a>
                 </td>
