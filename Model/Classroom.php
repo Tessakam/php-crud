@@ -1,10 +1,11 @@
 <?php
-
 declare(strict_types=1);
+
 class Classroom extends Database
 {
-    private int $id;
+    private int $id, $teacherId;
     private string $name, $location;
+    private array $students = [];
 
     public function __construct(string $name, string $location)
     {
@@ -25,6 +26,16 @@ class Classroom extends Database
     public function getLocation(): string
     {
         return $this->location;
+    }
+
+    public function getTeacherId(): int
+    {
+        return $this->teacherId;
+    }
+
+    public function getStudents(): array
+    {
+        return $this->students;
     }
 
     public function insertData()
