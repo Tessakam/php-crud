@@ -42,8 +42,8 @@ if (isset($_GET['page'])) {
     require 'Controller/ClassroomController.php';
     $controller = new ClassroomController();
 } else {
-require 'Controller/Homepage.php';
-$
+require 'Controller/HomepageController.php';
+$controller = new HomepageController();
 }
 //render the view
 $controller->render();
