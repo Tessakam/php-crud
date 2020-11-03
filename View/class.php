@@ -15,7 +15,8 @@
             <tr>
                 <td><?php echo htmlspecialchars($class->getName()) ?></td>
                 <td><?php echo htmlspecialchars($class->getLocation()) ?></td>
-
+                <td><a href="?page=teacher"><?php echo htmlspecialchars($class->getTeacher()->getName())?></a></td>
+                <td><a href="?page=student"><?php echo htmlspecialchars($class->getStudents()->getName())?></a></td>
             </tr>
         <?php endforeach; ?>
         </tbody>
