@@ -63,7 +63,15 @@ class Student extends Database
         $handle->bindValue(':name', $this->getName());
         $handle->bindValue(':email', $this->getEmail());
         $handle->bindValue(':id', $id);
-
+        $handle->execute();
     }
+
+    public function delete($id) {
+        $pdo = $this->openConnection();
+        $handle = $pdo->prepare('DELETE FROM student WHERE id = :id');
+        $handle->bindValue(':id', $id);
+        $handle->execute();
+    }
+
 
 }
