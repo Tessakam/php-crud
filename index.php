@@ -13,15 +13,17 @@ require 'Model/Teacherloader.php';
 require 'Model/Student.php';
 require 'Model/StudentLoader.php';
 
-require 'Controller/ClassroomController.php';
-require 'Controller/TeacherController.php';
-require 'Controller/StudentController.php';
-
-
-$studController = new StudentController();
 if (isset($_GET['page']) && $_GET['page'] == 'studentView.php') {
+    require 'Controller/StudentController.php';
+    $studController = new StudentController();
     $studController->studentData();
+} elseif (isset($_GET['page']) && $_GET['page'] == 'TeacherView.php') {
+    require 'Controller/TeacherController.php';
+    $controller = new TeacherController();
+    $controller->getTeacher();
 } else {
+    require 'Controller/StudentController.php';
+    $studController = new StudentController();
     $studController->getStudentData();
 }
 
