@@ -25,7 +25,7 @@
                     <a class="nav-link" href="?page=studentView.php">Student</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?page=Teaching.php">Teacher</a>
+                    <a class="nav-link" href="?page=TeacherView.php">Teacher</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?page=class.php">Class</a>

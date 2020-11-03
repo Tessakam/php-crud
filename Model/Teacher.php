@@ -59,8 +59,8 @@ class Teacher extends Database
                 $handle->execute();
                 $this->id = (int)$pdo->lastInsertId();
             } else {
-                $handle = $pdo->prepare('UPDATE user SET name = :name, email = :email,  WHERE id = :id');
-                $handle->bindValue(':id', $_POST['id']);
+                $handle = $pdo->prepare('UPDATE teacher SET name = :name, email = :email, class_id = :class_id,  WHERE id = :id');
+                $handle->bindValue(':id', ['id']);
             }
         }
 
