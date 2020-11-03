@@ -5,7 +5,7 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-require 'Model/Database.php';
+require 'Model/Database.php'; //should be on top because student extends from database
 require 'Model/Student.php';
 require 'Model/StudentLoader.php';
 require 'Model/Teacher.php';
