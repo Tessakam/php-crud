@@ -1,33 +1,25 @@
-<?php require 'View/includes/header.php'?>
+<?php require 'View/includes/header.php' ?>
 
-<section class="container">
-    <h1 class="text-center mb-5">Class data</h1>
-
-    <div>
-    <table class="table">
-        <thead>
+<table class="table table-striped table-wide">
+    <thead>
+    <tr>
+        <th width="20%">Name class</th>
+        <th width="20%">Location</th>
+        <th width="20%">Teacher</th>
+        <th width="20%">List of students</th>
+        <td colspan="2" width="20%"></td>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($classes as $class): ?>
         <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name class</th>
-            <th scope="col">Location</th>
-            <th scope="col">Teacher ID</th>
-            <th scope="col">List of students</th>
+            <td><?php echo htmlspecialchars($class->getName()) ?></td>
+            <td><?php echo htmlspecialchars($class->getLocation()) ?></td>
+            <td><?php echo "<a href=page=teacher&id={$class->getTeacherId()}"?></td>
 
+                       
         </tr>
-
-        <?php foreach ($classes as $class) :?>
-            <tr>
-                <th><?php echo $class->getId(); ?></th>
-                <td><?php echo $class->getName(); ?></td>
-                <td><?php echo $class->getLocation(); ?></td>
-                <td><?php echo $class->getTeacherId(); ?></td>
-                <td><?php echo $class->getTeacherId(); ?></td>
-                </tr>
-        <?php endforeach; ?>
-
-        </thead>
-    </div>
-</section>
-
-<?php require 'View/includes/footer.php'?>
-
+    <?php endforeach; ?>
+    </tbody>
+</table>
+<?php include 'View/includes/footer.php' ?>

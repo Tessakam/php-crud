@@ -3,6 +3,11 @@
 ## Day 1
 - Create database together
 - Divide models: Teacher (Whitney), Student (Awet), Class (Tessa)
+- Created all files in Controller folder (Awet)
+
+## Day 2
+- Insert data into database
+- Make sure the update and delete buttons work
 
 
 # Title: Create, Read, Update, Delete
