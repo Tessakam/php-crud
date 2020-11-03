@@ -37,4 +37,16 @@ class Classroom extends Database
         $this->id = (int)$pdo->lastInsertId();
     }
 
+    public function updateData()
+    {
+        //In this UPDATE statement: WHERE clause specifies the row that will be updated.
+        $handle = $this->openConnection()->prepare('UPDATE class SET name = :name, location = :location WHERE id= :id');
+        $handle->bindValue(':name', $this->getName());
+        $handle->bindValue(':location', $this->getLocation());
+        $handle->bindValue(':id', $this->getId());
+        //$teacherId = $this->getTeacherId();
+        //$handle->bindValue('teacher', $teacherId);
+        $handle->execute();
+    }
+
 }
