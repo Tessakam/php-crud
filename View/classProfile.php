@@ -8,20 +8,20 @@ declare(strict_types=1);
 
 <!-- card with info becode student-->
 <?php if (isset($_GET['class_id'])) {
-    $id = $_GET['class_id'];
-    echo $id;
+    $classId = $_GET['class_id'];
+    echo $classId;
 } else {
-    $id = 0;
+    $classId = 0;
 }
 
 ?>
     <div class="card" style="width: 18rem;">
-        <div> <?php $userId?> </div>
+        <div> <?php $classIdId?> </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Name class: <?php echo htmlspecialchars($class['name']) ?> </li>
-            <li class="list-group-item">Location: <?php echo htmlspecialchars($class['location']) ?></li>
-            <li class="list-group-item">Teacher: <?php echo $class['teacher_name'] ?> </li>
-            <li class="list-group-item">Students: <?php echo $class['teacher_name'] ?> </li>
+            <li class="list-group-item">Name class: <?php echo htmlspecialchars($classId['name']) ?> </li>
+            <li class="list-group-item">Location: <?php echo htmlspecialchars($classId['location']) ?></li>
+            <li class="list-group-item">Teacher: <?php echo $classId['teacher_name'] ?> </li>
+            <li class="list-group-item">Students: <?php echo $classId->getNa['teacher_name'] ?> </li>
         </ul>
     </div>
 
