@@ -16,23 +16,28 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach($classes AS $class):?>
+        <?php foreach ($classes as $class): ?>
             <tr>
-                <td><?php echo htmlspecialchars($class['name'])?></td>
-                <td><?php echo htmlspecialchars($class['location'])?></td>
-                <td><a href="?page=teacherId=<?php echo $class['teacher_id']?>"><?php echo $class['teacher_name']?></a></td>
-                <td><?php echo $class['student_num']?></td>
+                <td><?php echo htmlspecialchars($class['name']) ?></td>
+                <td><?php echo htmlspecialchars($class['location']) ?></td>
                 <td>
-                    <a href="?id=<?php echo $class['id']?>" class="btn btn-primary">Update</a>
+                    <a href="?page=teacherId=<?php echo $class['teacher_id'] ?>"><?php echo $class['teacher_name'] ?></a>
+                </td>
+                <td><?php echo $class['student_num'] ?></td>
+                <td>
+                    <form method="post">
+                        <a href="?id=<?php echo $class['id'] ?>" class="btn btn-primary">Update</a>
+                        <input type="submit" name="delete" value="Delete" class="btn btn-primary">
+                    </form>
                 </td>
                 <td>
                     <form method="post">
-                        <input type="hidden" name="id" value="<?php echo $class['id']?>"/>
+                        <input type="hidden" name="id" value="<?php echo $class['id'] ?>"/>
                         <input type="submit" name="delete" value="Delete" class="btn btn-danger">
                     </form>
                 </td>
             </tr>
-        <?php endforeach;?>
+        <?php endforeach; ?>
         </tbody>
     </table>
 <?php include 'View/includes/footer.php' ?>

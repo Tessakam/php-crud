@@ -28,7 +28,10 @@
                 <td><a href="?page=classId=<?php echo $student['class_id']?>"><?php echo $student['class_name']?></a></td>
                 <td><a href="?page=teacherId=<?php echo $student['teacher_id']?>"><?php echo $student['teacher_name']?></a></td>
                 <td>
+                    <form method="post">
                     <a href="?id=<?php echo $student['id']?>" class="btn btn-primary">Update</a>
+                        <input type="submit" name="update" value="Update" class="btn btn-primary">
+                    </form>
                 </td>
                 <td>
                     <form method="post">
