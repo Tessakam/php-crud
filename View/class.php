@@ -20,10 +20,10 @@
             <tr>
                 <td><?php echo htmlspecialchars($class['name']) ?></td>
                 <td><?php echo htmlspecialchars($class['location']) ?></td>
-                <td><a href="?page=teacherId=<?php echo isset($class['teacher_id'])? $class['teacher_id'] : ""?>"><?php echo isset($class['teacher_name'])? $class['teacher_name']: "" ?></a></td>
+                <td><a href="?page=teacher&Id=<?php echo isset($class['teacher_id'])? $class['teacher_id'] : ""?>"><?php echo isset($class['teacher_name'])? $class['teacher_name']: "" ?></a></td>
                 <td><?php echo isset($class['student_num'])? $class['student_num']: "" ?></td>
                 <td>
-                        <a href="?id=<?php echo $class['id'] ?>" class="btn btn-primary">Update</a>
+                        <a href="?page=class&id=<?php echo $class['id'] ?>" class="btn btn-primary">Update</a>
                 </td>
                 <td>
                     <form method="post">
