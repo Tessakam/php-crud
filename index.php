@@ -14,13 +14,16 @@ require 'Model/Classroom.php';
 if (isset($_GET['page']) && $_GET['page'] == 'student') {
     require 'Controller/StudentController.php';
     $controller = new StudentController();
+    //if you choose a teacher show the teacher page
 } elseif (isset($_GET['page']) && $_GET['page'] == 'teacher') { //else show the teacher page
     require 'Controller/TeacherController.php';
     $controller = new TeacherController();
+    //if you choose a class show the class page
 } elseif (isset($_GET['page']) && $_GET['page'] == 'class') { //else show the teacher page
     require 'Controller/ClassroomController.php';
     $controller = new ClassroomController();
 } else {
+    //directed to the homepage if you don't choose nothing
     require 'Controller/HomepageController.php';
     $controller = new HomepageController();
 }

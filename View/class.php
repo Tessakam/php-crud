@@ -11,7 +11,7 @@
             <th width="20%">Class Name</th>
             <th width="20%">Class Location</th>
             <th width="20%">Teacher Name</th>
-            <th width="20%">Number Of Students</th>
+            <th width="20%">Students</th>
             <td colspan="2" width="20%"></td>
         </tr>
         </thead>
