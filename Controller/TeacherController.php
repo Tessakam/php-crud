@@ -20,14 +20,14 @@ class TeacherController
             $teacher = new Teacher($_POST['teacher_name'], $_POST['teacher_email'], (int)$_POST['class_id']);
             $database->insertTeacher($teacher);
         }
+        $this->deleteTeacher();
         require 'View/TeacherView.php';
     }
 
-    public function deleteStudent() {
+    public function deleteTeacher() {
         if(isset($_POST['delete'])){
             $database = new Database();
-            $database->deleteStudent($_POST['id']);
+            $database->deleteTeacher($_POST['id']);
         }
-        require 'View/class.php';
     }
 }

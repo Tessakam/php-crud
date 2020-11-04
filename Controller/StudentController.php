@@ -43,5 +43,4 @@ class StudentController
             $database->deleteStudent($_POST['id']);
         }
     }
-
 }
