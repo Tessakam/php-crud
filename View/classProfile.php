@@ -5,18 +5,11 @@ declare(strict_types=1);
     Location (Antwerp, Gent, Genk, Brussels, Liege)
     Assigned teacher (clickable link)
     List of assigned students (clickable link)-->
+    ?page=classId=1
+<!-- card with info class-->$_GET['page'] == 'class'
 
-<!-- card with info becode student-->
-<?php if (isset($_GET['class_id'])) {
-    $classId = $_GET['class_id'];
-    echo $classId;
-} else {
-    $classId = 0;
-}
-
-?>
     <div class="card" style="width: 18rem;">
-        <div> <?php $classIdId?> </div>
+        <div> <?php $classId?> </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Name class: <?php echo htmlspecialchars($classId['name']) ?> </li>
             <li class="list-group-item">Location: <?php echo htmlspecialchars($classId['location']) ?></li>
@@ -26,4 +19,4 @@ declare(strict_types=1);
     </div>
 
 
- require 'View/includes/footer.php' ?>
+<?php require 'View/includes/footer.php' ?>

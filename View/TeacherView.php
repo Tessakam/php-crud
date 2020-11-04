@@ -17,6 +17,7 @@
             <th width="20%">Teacher Email</th>
             <th width="20%">Class Name</th>
             <th width="20%">Class Location</th>
+            <th width="20%">Students</th>
             <td colspan="2" width="20%"></td>
         </tr>
         </thead>
@@ -27,7 +28,7 @@
                 <td><?php echo htmlspecialchars($teacher['email'])?></td>
                 <td><a href="?page=classId=<?php echo $teacher['class_id']?>"><?php echo $teacher['class_name']?></a></td>
                 <td><?php echo $teacher['class_location']?></td>
-                <td>
+                <td>href="?page=classId=<?php echo $teacher['class_id']?>"><?php echo $teacher['class_name']?></td>
                     <a href="?id=<?php echo $teacher['id']?>" class="btn btn-primary">Update</a>
                 </td>
                 <td>

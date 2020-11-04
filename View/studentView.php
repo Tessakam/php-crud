@@ -25,8 +25,8 @@
             <tr>
                 <td><?php echo htmlspecialchars($student['name'])?></td>
                 <td><?php echo htmlspecialchars($student['email'])?></td>
-                <td><a href="?page=classId=<?php echo $student['class_id']?>"><?php echo $student['class_name']?></a></td>
-                <td><a href="?page=teacherId=<?php echo $student['teacher_id']?>"><?php echo $student['teacher_name']?></a></td>
+                <td><a href="?page=class&Id=<?php echo $student['class_id']?>"><?php echo $student['class_name']?></a></td>
+                <td><a href="?page=teacher&Id=<?php echo $student['teacher_id']?>"><?php echo $student['teacher_name']?></a></td>
                 <td>
                     <a href="?id=<?php echo $student['id']?>" class="btn btn-primary">Update</a>
                 </td>

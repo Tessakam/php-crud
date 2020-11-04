@@ -19,7 +19,7 @@ if (isset($_GET['page']) && $_GET['page'] == 'student') {
     require 'Controller/TeacherController.php';
     $controller = new TeacherController();
     //if you choose a class show the class page
-} elseif (isset($_GET['page']) && $_GET['page'] == 'class') { //else show the teacher page
+} elseif (isset($_GET['page']) && $_GET['page'] == 'class') { //else show the class page
     require 'Controller/ClassroomController.php';
     $controller = new ClassroomController();
 } else {
