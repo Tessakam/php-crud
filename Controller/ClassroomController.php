@@ -19,7 +19,6 @@ class ClassroomController
                 } else {
                     $classes = $database->displayClasses();
                 }
-
             }
 
         }
@@ -28,6 +27,8 @@ class ClassroomController
             $database->insertClass($classroom);
         }
         $this->deleteClass();
+        $this->updateClass();
+
         require 'View/class.php';
     }
 
@@ -43,11 +44,12 @@ class ClassroomController
     //If you remove a class, make sure to remove the link between the students and the class.
     //count = true
 
-    public function displayClass()
+    public function updateClass()
     {
-        if (isset($_POST[$class['teacher_id']])) {
+        if (isset($_POST['update'])) {
             $database = new Database();
-            // <a href="?page=teacherId=<?php echo $class['teacher_id']">
+            $database->updateClassroom($_POST['name'], $_POST['email'], $_POST['id']);
         }
     }
+
 }

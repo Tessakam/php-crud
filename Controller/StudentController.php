@@ -33,6 +33,7 @@ class StudentController
             $database->insertStudent($student);
         }
         $this->deleteStudent();
+        $this->updateStudent();
         require 'View/studentView.php';
     }
 
@@ -41,6 +42,14 @@ class StudentController
         if (isset($_POST['delete'])) {
             $database = new Database();
             $database->deleteStudent($_POST['id']);
+        }
+    }
+
+    public function updateStudent()
+    {
+        if (isset($_GET['id'])) {
+            $database = new Database();
+            $database->updateStudent($_POST['name'], $_POST['email'], $_POST['id']);
         }
     }
 }

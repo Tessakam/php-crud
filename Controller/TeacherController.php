@@ -1,9 +1,11 @@
 <?php
 
 declare(strict_types=1);
+
 class TeacherController
 {
-    public function render() {
+    public function render()
+    {
         $database = new Database();
         $teacherArray = $database->displayTeachers();
         $classes = $database->displayClasses();
@@ -21,13 +23,23 @@ class TeacherController
             $database->insertTeacher($teacher);
         }
         $this->deleteTeacher();
+        $this->updateTeacher();
         require 'View/TeacherView.php';
     }
 
-    public function deleteTeacher() {
-        if(isset($_POST['delete'])){
+    public function deleteTeacher()
+    {
+        if (isset($_POST['delete'])) {
             $database = new Database();
             $database->deleteTeacher($_POST['id']);
+        }
+    }
+
+    public function updateTeacher()
+    {
+        if (isset($_POST['update'])) {
+            $database = new Database();
+            $database->updateTeacher($_POST['name'], $_POST['email'], $_POST['id']);
         }
     }
 }
