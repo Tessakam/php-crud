@@ -14,7 +14,6 @@ require 'Model/Classroom.php';
 if (isset($_GET['page']) && $_GET['page'] == 'student') {
     require 'Controller/StudentController.php';
     $controller = new StudentController();
-    $controller->deleteStudent();
 } elseif (isset($_GET['page']) && $_GET['page'] == 'teacher') { //else show the teacher page
     require 'Controller/TeacherController.php';
     $controller = new TeacherController();
