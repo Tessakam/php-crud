@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-//flow structure could be better by adding private class and adding require in render.
-
 class ClassroomController
 {
     public function render()
@@ -36,6 +34,14 @@ class ClassroomController
             $database->deleteClassroom($_POST['id']);
         }
     }
-     // check if teacher is still asigned to another class
-    // same for class with teacher
+    //A teacher cannot be removed if he is still assigned to a class
+    //If you remove a class, make sure to remove the link between the students and the class.
+
+    public function displayClass()
+    {
+    if (isset($_POST[$class['teacher_id']])){
+        $database = new Database();
+        // <a href="?page=teacherId=<?php echo $class['teacher_id']">
+    }
+    }
 }
