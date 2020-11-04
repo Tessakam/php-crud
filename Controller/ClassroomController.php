@@ -29,19 +29,21 @@ class ClassroomController
 
     public function deleteClass()
     {
-        if (isset($_POST['delete'])) {
-            $database = new Database();
+        $database = new Database();
+
+        if (isset($_POST['delete']) && !count($database->getStudentFromClass($_POST['id']))) {
             $database->deleteClassroom($_POST['id']);
         }
     }
     //A teacher cannot be removed if he is still assigned to a class
     //If you remove a class, make sure to remove the link between the students and the class.
+    //count = true
 
     public function displayClass()
     {
-    if (isset($_POST[$class['teacher_id']])){
-        $database = new Database();
-        // <a href="?page=teacherId=<?php echo $class['teacher_id']">
-    }
+        if (isset($_POST[$class['teacher_id']])) {
+            $database = new Database();
+            // <a href="?page=teacherId=<?php echo $class['teacher_id']">
+        }
     }
 }
