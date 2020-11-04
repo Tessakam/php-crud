@@ -1,11 +1,13 @@
 <?php
 
 declare(strict_types=1);
+
 //flow structure could be better by adding private class and adding require in render.
 
 class ClassroomController
 {
-    public function render() {
+    public function render()
+    {
         $database = new Database();
         $classArray = $database->displayClasses();
         $teacherArray = $database->displayTeachers();
@@ -23,9 +25,17 @@ class ClassroomController
             $classroom = new Classroom($_POST['class_name'], $_POST['class_location']);
             $database->insertClass($classroom);
         }
-
+        $this->deleteClass();
         require 'View/class.php';
     }
 
-
+    public function deleteClass()
+    {
+        if (isset($_POST['delete'])) {
+            $database = new Database();
+            $database->deleteClassroom($_POST['id']);
+        }
+    }
+     // check if teacher is still asigned to another class
+    // same for class with teacher
 }
