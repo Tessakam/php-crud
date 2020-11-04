@@ -28,10 +28,7 @@
                 <td><a href="?page=classId=<?php echo $teacher['class_id']?>"><?php echo $teacher['class_name']?></a></td>
                 <td><?php echo $teacher['class_location']?></td>
                 <td>
-                    <form method="post">
                     <a href="?id=<?php echo $teacher['id']?>" class="btn btn-primary">Update</a>
-                        <input type="submit" name="delete" value="Delete" class="btn btn-primary">
-                    </form>
                 </td>
                 <td>
                     <form method="post">

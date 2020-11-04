@@ -25,10 +25,7 @@
                 </td>
                 <td><?php echo $class['student_num'] ?></td>
                 <td>
-                    <form method="post">
                         <a href="?id=<?php echo $class['id'] ?>" class="btn btn-primary">Update</a>
-                        <input type="submit" name="delete" value="Delete" class="btn btn-primary">
-                    </form>
                 </td>
                 <td>
                     <form method="post">
