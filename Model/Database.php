@@ -125,4 +125,12 @@ class Database
         return $handle->fetchAll();
     }
 
+    public function getStudentById ($id) {
+        $pdo = $this->openConnection();
+        $handle = $pdo->prepare('SELECT * FROM student WHERE id = :id');
+        $handle->bindValue('id', $id);
+        $handle->execute();
+        return $handle->fetch();
+    }
+
 }
