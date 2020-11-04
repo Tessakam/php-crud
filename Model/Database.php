@@ -119,7 +119,7 @@ class Database
 
     public function getStudentFromClass($class_id) {
         $pdo = $this->openConnection();
-        $handle = $pdo->prepare('SELECT name FROM student WHERE class_id = :class_id');
+        $handle = $pdo->prepare('SELECT * FROM student WHERE class_id = :class_id');
         $handle->bindValue('class_id', $class_id);
         $handle->execute();
         return $handle->fetchAll();
