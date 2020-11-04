@@ -1,31 +1,26 @@
 <?php
 
 declare(strict_types=1);
-
 class TeacherController
 {
-    private Teacher $teacher;
-    private Teacherloader $loader;
-
-    public function render() // getTeacherData
-    {
-        if (!empty($_POST['teacher_name']) && !empty($_POST['teacher_email'])) {
-               $this->teacher = new Teacher($_POST['teacher_name'], $_POST['teacher_email']);
-            $this->teacher->insert();
+    public function render() {
+        $database = new Database();
+        $teacherArray = $database->displayTeachers();
+        $classes = $database->displayClasses();
+        $teachers = [];
+        foreach ($teacherArray as $teacher) {
+            foreach ($classes as $class) {
+                if ($teacher['class_id'] == $class['id']) {
+                    $teacher += ['class_name' => $class['name'], 'class_location' => $class['location']];
+                    array_push($teachers, $teacher);
+                }
+            }
         }
-        $this->teacherData();
-    }
-
-    public function getTeacher(): Teacher
-    {
-        return $this->teacher;
-    }
-
-    public function teacherData()
-    {
-        $loader = new Teacherloader();
-        $teachers = $loader->getTeachers();
-
+        if (!empty($_POST['teacher_name']) && !empty($_POST['teacher_email']) && !empty($_POST['class_id'])) {
+            $teacher = new Teacher($_POST['teacher_name'], $_POST['teacher_email'], (int)$_POST['class_id']);
+            $database->insertTeacher($teacher);
+        }
         require 'View/TeacherView.php';
     }
+
 }

@@ -2,30 +2,30 @@
 
 declare(strict_types=1);
 
-class Teacher extends Database
+class Teacher
 {
     private int $id;
     private string $name;
     private string $email;
-    private Classroom $class;
+    private int $classId;
 
-    //added method with properties included
-    public function __construct(string $name, string $email, Classroom $class)
+
+    public function __construct(string $name, string $email, int $classId)
     {
         $this->name = ucwords($name);
         $this->email = $email;
-        $this->class = $class;
+        $this->classId = $classId;
     }
 
-
-    public function getId(): int
-    {
-        return $this->id;
-    }
 
     public function setId(int $id): void
     {
         $this->id = $id;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     public function getName(): string
@@ -33,43 +33,14 @@ class Teacher extends Database
         return $this->name;
     }
 
-
     public function getEmail(): string
     {
         return $this->email;
     }
 
 
-    public function getClass(): Classroom
+    public function getClassId(): int
     {
-        return $this->class;
-    }
-
-
-    // insert teacher data to the teacher table in the database manager.
-    public function insert() {
-        $pdo = $this->openConnection();
-        $handle = $pdo->prepare('INSERT INTO teacher (name, email, class_id) VALUES (:name, :email, :class_id)');
-        $handle->bindValue(':name', $this->getName());
-        $handle->bindValue(':email', $this->getEmail());
-        $handle->bindValue(':teacher_id', $this->getClass()->getId());
-        $handle->execute();
-        $this->id = (int)$pdo->lastInsertId();
-    }
-
-    public function update($id) {
-        $pdo = $this->openConnection();
-        $handle = $pdo->prepare('UPDATE teacher SET name = :name, email = :email WHERE id = :id');
-        $handle->bindValue(':name', $this->getName());
-        $handle->bindValue(':email', $this->getEmail());
-        $handle->bindValue(':id', $id);
-        $handle->execute();
-    }
-
-    public function delete($id) {
-        $pdo = $this->openConnection();
-        $handle = $pdo->prepare('DELETE FROM teacher WHERE id = :id');
-        $handle->bindValue(':id', $id);
-        $handle->execute();
+        return $this->classId;
     }
 }

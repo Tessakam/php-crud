@@ -7,10 +7,7 @@ error_reporting(E_ALL);
 
 require 'Model/Database.php'; //should be on top because student extends from database
 require 'Model/Student.php';
-require 'Model/StudentLoader.php';
 require 'Model/Teacher.php';
-require 'Model/Teacherloader.php';
-require 'Model/ClassroomLoader.php';
 require 'Model/Classroom.php';
 
 //if you choose a student show the student page
