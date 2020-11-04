@@ -11,7 +11,7 @@ class ClassroomController
         $teacherArray = $database->displayTeachers();
         $classes = [];
         foreach ($teacherArray as $teacher) {
-            $studentName = $database->getStudentName($teacher['id']);
+            $studentName = $database->getStudentFromClass($teacher['id']);
             foreach ($classArray as $class) {
                 if ($teacher['class_id'] == $class['id']) {
                     $class += ['teacher_name' => $teacher['name'], 'teacher_id' => $teacher['id'], 'student_num' => count($studentName)];

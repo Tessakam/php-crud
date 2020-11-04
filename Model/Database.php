@@ -117,7 +117,7 @@ class Database
         return $handle->fetchAll();
     }
 
-    public function getStudentName($class_id) {
+    public function getStudentFromClass($class_id) {
         $pdo = $this->openConnection();
         $handle = $pdo->prepare('SELECT name FROM student WHERE class_id = :class_id');
         $handle->bindValue('class_id', $class_id);
