@@ -23,4 +23,11 @@ class TeacherController
         require 'View/TeacherView.php';
     }
 
+    public function deleteStudent() {
+        if(isset($_POST['delete'])){
+            $database = new Database();
+            $database->deleteStudent($_POST['id']);
+        }
+        require 'View/class.php';
+    }
 }

@@ -1,9 +1,11 @@
 <?php
 
 declare(strict_types=1);
+
 class StudentController
 {
-    public function render() {
+    public function render()
+    {
         $database = new Database();
         $teacherArray = $database->displayTeachers();
         $studentArray = $database->displayStudents();
@@ -21,7 +23,7 @@ class StudentController
         foreach ($studentArray as $student) {
             foreach ($classes as $class) {
                 if ($student['class_id'] == $class['id']) {
-                    $student += ['teacher_name' => $class['teacher_name'], 'teacher_email' => $class['teacher_email'], 'class_id' => $class['id'],'class_name' => $class['name'], 'class_location' => $class['location'], 'teacher_id' => $class['teacher_id']];
+                    $student += ['teacher_name' => $class['teacher_name'], 'teacher_email' => $class['teacher_email'], 'class_id' => $class['id'], 'class_name' => $class['name'], 'class_location' => $class['location'], 'teacher_id' => $class['teacher_id']];
                     array_push($students, $student);
                 }
             }
@@ -30,15 +32,16 @@ class StudentController
             $student = new Student($_POST['student_name'], $_POST['student_email'], (int)$_POST['class_id']);
             $database->insertStudent($student);
         }
+        $this->deleteStudent();
         require 'View/studentView.php';
     }
 
-    public function deleteStudent() {
-        if(isset($_POST['delete'])){
+    public function deleteStudent()
+    {
+        if (isset($_POST['delete'])) {
             $database = new Database();
             $database->deleteStudent($_POST['id']);
         }
-        require 'View/studentView.php';
     }
 
 }
