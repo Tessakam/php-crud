@@ -16,11 +16,10 @@ class ClassroomController
                 if ($teacher['class_id'] == $class['id']) {
                     $class += ['teacher_name' => $teacher['name'], 'teacher_id' => $teacher['id'], 'student_num' => count($studentName)];
                     array_push($classes, $class);
+                } else {
+                    $classes = $database->displayClasses();
                 }
-            }
-            if ($teacher['class_id'] !== $class['id']) {
-                $class += ['teacher_name' => "", 'teacher_id' => "", 'student_num' => 0];
-                array_push($classes, $class);
+
             }
 
         }
