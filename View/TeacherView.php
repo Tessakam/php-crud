@@ -29,7 +29,7 @@
                 <td><?php echo $teacher['class_location']?></td>
                 <td>
 
-                    <a href="?id=<?php echo $teacher['id']?>" class="btn btn-primary">Update</a>
+                    <a href="?page=teacher&id=<?php echo $teacher['id']?>" class="btn btn-primary">Update</a>
                 </td>
 
                 <td>
