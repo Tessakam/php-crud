@@ -27,11 +27,8 @@
                 <td><?php echo htmlspecialchars($teacher['email'])?></td>
                 <td><a href="?page=class&Id=<?php echo $teacher['class_id']?>"><?php echo $teacher['class_name']?></a></td>
                 <td><?php echo $teacher['class_location']?></td>
-<<<<<<< HEAD
-                <td>href="?page=class&Id=<?php echo $teacher['class_id']?>"><?php echo $teacher['class_name']?></td>
-=======
                 <td>
->>>>>>> 67d3c0428d0ac9e570ea362165f3e49861c4d83d
+
                     <a href="?id=<?php echo $teacher['id']?>" class="btn btn-primary">Update</a>
                 </td>
 
