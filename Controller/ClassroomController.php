@@ -18,6 +18,11 @@ class ClassroomController
                     array_push($classes, $class);
                 }
             }
+            if ($teacher['class_id'] !== $class['id']) {
+                $class += ['teacher_name' => "", 'teacher_id' => "", 'student_num' => 0];
+                array_push($classes, $class);
+            }
+
         }
         if (!empty($_POST['class_name']) && !empty($_POST['class_location'])) {
             $classroom = new Classroom($_POST['class_name'], $_POST['class_location']);
